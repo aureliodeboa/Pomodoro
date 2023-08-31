@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+
+    
+}
+
+.clock-area{
+
+    background-color: yellow;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
