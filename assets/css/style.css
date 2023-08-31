@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Manrope:wght@400;600&family=Silkscreen&display=swap');
 :root{
     --bg-color: #161932;
-    --progress-bar-color:#70f3f8;
+    --current-color:#70f3f8;
     --bar-color: #212442;
     --font-color:#d7e0ff;
+    --font-one: 'Manrope', sans-serif;
+    --font-two: 'IBM Plex Mono', monospace;
+    --font-tree: 'Silkscreen', monospace;
 }
 
 *{
@@ -10,7 +14,7 @@
 }
 
 body{
-    background-color: var(--font-color);
+    background-color: var(--bg-color);
 }
 .container{
 
@@ -26,27 +30,59 @@ body{
 .title{
   
     text-transform: uppercase;
+    font-family: var(--font-one);
+    font-weight: 1000;
+    font-size: 20px;
+    color: var(--font-color);
     
 }
 .area-bar{
     
     display: flex;
+    align-items: center;
     flex-direction: row;
-    justify-content: space-between;
-    width: 50vh;
-}
+    justify-content: space-around;
+    width: 500px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: var(--bar-color);
 
+    color: var(--font-color);
+    font-family: var(--font-one);
+    font-weight: 800;
+    font-size: 15px;
+    text-transform: lowercase;
+}
+.area-bar span{
+    margin: 10px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+    width: 80%;
+    
+}
+.active-bar{
+    color: var(--bg-color);
+    background-color: var(--current-color) ;
+}
 .progress-bar{
+    cursor: pointer;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: conic-gradient( var(--progress-bar-color) 3.6deg, var(--bg-color) 0deg);
+    background: conic-gradient( var(--current-color) 3.6deg, var(--bg-color) 0deg);
     height: 380px;
     width: 380px;
     border-radius: 50%;
 }
 .progress-bar::before{
+
+   
     content: "";
     position: absolute;
     background-color: var(--bg-color);
@@ -54,11 +90,52 @@ body{
     height: 400px;
     width: 400px;
     z-index: -1;
+    box-shadow:  0px 0 5px var(--font-color);
+
+
+    -webkit-transition: all 700ms ease-in-out;
+    -moz-transition: all 700ms  ease-in-out;
+    -o-transition: all 700ms ease-in-out;
+    -ms-transition: all 700ms  ease-in-out;
+    transition: all 700ms  ease-in-out;
+   
+}
+.progress-bar:hover::before{
+
+   
+    box-shadow: 
+    2px 0 5px var(--font-color),
+    0 0 10px var(--current-color),
+    0 0 15px var(--current-color),
+    0 0 20px var(--font-color);
+
+    -webkit-transition: all 700ms ease-in-out;
+    -moz-transition: all 700ms  ease-in-out;
+    -o-transition: all 700ms  ease-in-out;
+    -ms-transition: all 700ms ease-in-out;
+    transition: all 700ms ease-in-out;
+   
+   
+   
 }
 .clock{
-  
+   
     background-color:var(--bg-color);
     height: 95%;
     width: 95%;
     border-radius: 50%;
+    
 }
+
+.config{
+   cursor: pointer;
+   transition: all 1s ease-in-out;
+   
+}
+
+.config:hover{
+    transition: all 1s ease-in-out;
+    transform: rotate(90deg);
+    
+ }
+
