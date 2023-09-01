@@ -8,9 +8,9 @@ let minutesTimer= 25;
 let secondsTimer= 0;
 let isPause= true;
 let shortqt=0;
+let setbar=0;
 
-let progresPerSecond= 360/(minutesTimer*60);
-
+let progressPerSecond= 360/(minutesTimer*60); //calcula quanto degraus a progress bar deve se apagada de acordo com o tempo esbelecido
 
 function formateInTime(min,seg){
     
@@ -21,6 +21,7 @@ function formateInTime(min,seg){
 }
 
 function progressBar(){
+    progressBarEl.style.background= `conic-gradient(  var(--bg-color) ${setbar+=progressPerSecond}deg, var(--current-color) 180deg)`;
     
 }
 
@@ -37,7 +38,7 @@ function tooglePause(){
         clearInterval(intervalTimer);
     }
 
-    console.log(isPause);
+    
 }
 
 
@@ -58,14 +59,16 @@ function time(){
     else
     {
         if(minutesTimer === 0){
-            shortqt++;
+            shortqt++; //contabilizar os short break
             short();
-            minutesTimer=25;
+            minutesTimer=25; //reinicia o tempo
+            setbar=0; //zera a progressbar
         }
         else{
             secondsTimer--;
         }
     }
+    progressBar();
     timerEl.textContent=formateInTime(minutesTimer,secondsTimer);
 }
 
