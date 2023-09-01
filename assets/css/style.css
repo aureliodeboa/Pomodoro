@@ -206,7 +206,7 @@ body{
  }
 
  .modal-content {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: relative;
     background-color: #fefefe;
