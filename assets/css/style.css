@@ -189,7 +189,7 @@ body{
     background-color: white;
     z-index: 1;
     */
-    display: none; /* Hidden by default */
+    display: flex; /* Hidden by default */
     position: fixed; /* Stay in place */
     align-items: center;
     justify-content: center;
