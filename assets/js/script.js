@@ -2,6 +2,9 @@ let clockEl = document.querySelector('.clock');
 let timerEl = document.querySelector('.timer');
 let texTimerEl = document.querySelector('.text-time');
 let progressBarEl = document.querySelector('.progress-bar');
+let pomodoroBtn = document.querySelector('.area-bar span:nth-child(1)');
+let shortBtn = document.querySelector('.area-bar span:nth-child(2)');
+let longBtn = document.querySelector('.area-bar span:nth-child(3)');
 
 let intervalTimer;
 let minutesTimer= 25;
@@ -27,15 +30,15 @@ function progressBar(){
 
 function tooglePause(){
     if(isPause){
-
         texTimerEl.textContent="Pause";
         isPause= false;
-        
+        //make sound
     }
     else{
         texTimerEl.textContent="Start";
         isPause=true;
         clearInterval(intervalTimer);
+        //put sound
     }
 
     
@@ -61,7 +64,7 @@ function time(){
         if(minutesTimer === 0){
             shortqt++; //contabilizar os short break
             short();
-            minutesTimer=25; //reinicia o tempo
+            minutesTimer= 25; //reinicia o tempo
             setbar=0; //zera a progressbar
         }
         else{
@@ -73,8 +76,66 @@ function time(){
 }
 
 function short(){
-    //open short break
+    pomodoroBtn.classList.remove('active-bar');
+    longBtn.classList.remove('active-bar');
+    shortBtn.classList.add('active-bar');
+
+    if(!isPause)
+    {
+        tooglePause();
+    }
+
+    minutesTimer=5;
+    secondsTimer=0;
+
+    timerEl.textContent=formateInTime(minutesTimer,secondsTimer)
+
+
+
 }
+
+function pomodoro(){
+    pomodoroBtn.classList.add('active-bar');
+    longBtn.classList.remove('active-bar');
+    shortBtn.classList.remove('active-bar');
+
+    if(!isPause)
+    {
+        tooglePause();
+    }
+
+    minutesTimer=25;
+    secondsTimer=0;
+
+    timerEl.textContent=formateInTime(minutesTimer,secondsTimer)
+
+
+
+}
+
+function long(){
+    pomodoroBtn.classList.remove('active-bar');
+    longBtn.classList.add('active-bar');
+    shortBtn.classList.remove('active-bar');
+
+    if(!isPause)
+    {
+        tooglePause();
+    }
+
+    minutesTimer=10;
+    secondsTimer=0;
+
+    timerEl.textContent=formateInTime(minutesTimer,secondsTimer)
+
+
+
+}
+
+pomodoroBtn.addEventListener('click',pomodoro);
+shortBtn.addEventListener('click',short);
+longBtn.addEventListener('click',long);
+
 clockEl.addEventListener('click',startTimer);
 
 
