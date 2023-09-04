@@ -205,6 +205,10 @@ body{
 
  }
 
+ .modal.open{
+    display: flex;
+ }
+
  .modal-content {
     display: flex;
     flex-direction: column;
