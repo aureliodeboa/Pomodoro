@@ -381,6 +381,26 @@ body{
   
   }
 
+.footer{
+    font-family: var(--current-font);
+    height: 20px;
+    margin: 0;
+    bottom: 80px;
+    display: flex;
+    position: relative;
+    color: var(--current-color);
+    text-decoration: none;
+}
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer img{
+    height: 1rem;
+}
+
+
   @media  (min-width: 500px) and (max-width:1140px){
     
     /*modal*/
