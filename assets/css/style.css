@@ -413,4 +413,12 @@ body{
     height: 320px;
   }
 
+  .timer{
+    font-size: 4.5rem;
+  }
+
+  .clock .text-time{
+    font-size: 1rem;
+  }
+
   }
