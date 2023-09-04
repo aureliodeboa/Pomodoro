@@ -431,6 +431,28 @@ body{
         height: 300px;
 
     }
+    .area-bar{
+        width: 380px;
+      }
+    
+      .progress-bar{
+        width: 300px;
+        height: 300px;
+      }
+    
+      .progress-bar::before{
+        width: 320px;
+        height: 320px;
+      }
+    
+      .timer{
+        font-size: 4.5rem;
+      }
+    
+      .clock .text-time{
+        font-size: 1rem;
+      }
+      
     .input-area input{
         width: 72px;
       }
