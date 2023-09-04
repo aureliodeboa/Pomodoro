@@ -381,12 +381,12 @@ body{
   
   }
 
-  @media  (max-width: 500px){
+  @media  (min-width: 500px) and (max-width:1140px){
     
     /*modal*/
     
     .modal-content{
-        width: 380px;
+        width: 400px;
         height: 310px;
 
     }
@@ -420,5 +420,25 @@ body{
   .clock .text-time{
     font-size: 1rem;
   }
+  
 
+  }
+
+  @media (min-width:320px) and (max-width:499px) {
+
+    .modal-content{
+        width: 330px;
+        height: 300px;
+
+    }
+    .input-area input{
+        width: 72px;
+      }
+
+      .button
+      {   padding: 8px;
+          height: 20px;
+          font-size: 15px;
+          top: -6px;
+      }
   }
