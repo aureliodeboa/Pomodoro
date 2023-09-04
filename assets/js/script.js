@@ -30,6 +30,8 @@ let isPause= true;
 let shortqt=0;
 let setbar=0;
 let progressPerSecond=0;
+let barStatus=0;
+
 
 function calculateProgressBar(minutesTimer){
     progressPerSecond= 360/(minutesTimer*60); //calcula quanto graus a progress bar deve se apagada de acordo com o tempo esbelecido
@@ -98,8 +100,31 @@ function time(){
         minutesTimer= pomodoroTimeEl.value; //reinicia o tempo
         setbar=0; //zera a progressbar
         songPlay(finishSong);
-        short();
-        
+
+        switch (barStatus) {
+            case 0:
+                if(shortqt > 3 ) 
+                {
+                    long();
+                    shortqt=0;
+                }
+                else{
+                    short();
+                    short++;
+                }
+                break;
+            case 1:
+                pomodoro();
+                break;
+            case 2:
+                pomodoro();
+                break;   
+            default:
+                short();
+                shortqt++;
+                break;
+        }
+    
     }
     else
     {
@@ -117,6 +142,7 @@ function time(){
 
 function short(){
     
+    barStatus=1;
     pomodoroBtn.classList.remove('active-bar');
     longBtn.classList.remove('active-bar');
     shortBtn.classList.add('active-bar');
@@ -135,7 +161,7 @@ function short(){
 }
 
 function pomodoro(){
-    
+    barStatus=0;
     longBtn.classList.remove('active-bar');
     shortBtn.classList.remove('active-bar');
     pomodoroBtn.classList.add('active-bar');
@@ -156,7 +182,8 @@ function pomodoro(){
 }
 
 function long(){
-    
+
+    barStatus=2;
     pomodoroBtn.classList.remove('active-bar');
     shortBtn.classList.remove('active-bar');
     longBtn.classList.add('active-bar');
@@ -324,9 +351,8 @@ longBtn.addEventListener('click',long);
 configBtn.addEventListener('click',openModal);
 closeBtn.addEventListener('click',closeModal);
 apllyBtn.addEventListener('click',apllyModal);
-//modal.addEventListener('click',closeModal);
+
 
 clockEl.addEventListener('click',startTimer);
-
 
 
