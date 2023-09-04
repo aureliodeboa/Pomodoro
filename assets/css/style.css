@@ -14,6 +14,7 @@
     --color-tree:#d881f8;
 
     /*Fonts*/
+    --current-font: 'Manrope', sans-serif;
     --font-one: 'Manrope', sans-serif;
     --font-two: 'IBM Plex Mono', monospace;
     --font-tree: 'Silkscreen', monospace;
@@ -41,7 +42,7 @@ body{
 .title{
   
     text-transform: uppercase;
-    font-family: var(--font-one);
+    font-family: var(--current-font);
     font-weight: 1000;
     font-size: 20px;
     color: var(--font-color);
@@ -62,7 +63,7 @@ body{
     color: var(--font-color);
     
    
-    font-family: var(--font-one);
+    font-family: var(--current-font);
     font-weight: 800;
     font-size: 15px;
     font-style: bolder;
@@ -153,14 +154,14 @@ body{
     
 }
 .timer{
-    font-family: var(--font-one);
+    font-family: var(--current-font);
     font-size: 6rem;
     font-style: bold;
     font-weight: bolder;
 }
 .clock .text-time{
     letter-spacing: 2px;
-    font-family: var(--font-one);
+    font-family: var(--current-font);
     font-size: 1.5rem;
     font-style: bold;
     font-weight: bolder;
@@ -219,7 +220,7 @@ body{
     width: 500px; /* Could be more or less, depending on screen size */
     height: 350px;
     border-radius: 15px;
-    font-family:  var(--font-one);
+    font-family:  var(--current-font);
     text-transform: uppercase;
     font-weight: 1000;
     color: var(--bg-color);
@@ -291,6 +292,7 @@ body{
     
 }
 .font{
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -338,17 +340,20 @@ body{
     height: 35px;
     margin: 5px;
 }
+.color{
+    cursor: pointer;
+}
 .color.one{
     background-color:var(--color-one);
 }
-.color .two{
+.color.two{
     background-color:var(--color-two);
 }
 .color.tree{
     background-color:var(--color-tree);
 }
 
-.color .active::after {
+.color.active::after {
     content: '✔';
 }
 
@@ -356,7 +361,7 @@ body{
 
 
   .button{
-    font-family: var(--font-one);
+    font-family: var(--current-font);
     font-style: bolder;
     position: absolute;
     cursor: pointer;
@@ -368,7 +373,7 @@ body{
     height: 40px;
     width: 100px;
     background-color: #70f3f8;
-    bottom: 14%;
+    bottom: 19%;
   
   }
 

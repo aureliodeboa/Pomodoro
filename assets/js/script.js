@@ -12,6 +12,10 @@ let apllyBtn = document.querySelector('.button');
 let pomodoroTimeEl = document.querySelector("#pomodoro-time");
 let shortTimeEl = document.querySelector("#short-time");
 let longTimeEl = document.querySelector("#long-time");
+let fontEL= document.querySelectorAll('.font');
+let colorEl = document.querySelectorAll('.color');
+let  currentFont = getComputedStyle(document.documentElement).getPropertyValue('--current-font'); 
+let  currentColor = getComputedStyle(document.documentElement).getPropertyValue('--current-color'); 
 
 
 let intervalTimer;
@@ -25,7 +29,7 @@ let progressPerSecond=0;
 function calculateProgressBar(minutesTimer){
     progressPerSecond= 360/(minutesTimer*60); //calcula quanto graus a progress bar deve se apagada de acordo com o tempo esbelecido
     setbar=progressPerSecond;
-    console.log(minutesTimer);
+
 }
 
 
@@ -147,9 +151,101 @@ function long(){
 
 
 }
+function removeClassActive(el){
+  
+   for(let i=0;i<el.length;i++)
+   {
+        el[i].classList.remove('active');
+        
+   }
+   
+}
 
 function openModal(){
     modal.classList.add('open');
+
+    fontEL[0].addEventListener('click',()=>{
+        removeClassActive(fontEL);
+        fontEL[0].classList.add('active');   
+    });
+    fontEL[1].addEventListener('click',()=>{
+        removeClassActive(fontEL);
+        fontEL[1].classList.add('active');   
+    });
+    fontEL[2].addEventListener('click',()=>{
+        removeClassActive(fontEL);
+        fontEL[2].classList.add('active');   
+    });
+
+    colorEl[0].addEventListener('click',()=>{
+        removeClassActive(colorEl);
+        colorEl[0].classList.add('active');
+    })
+    colorEl[1].addEventListener('click',()=>{
+        removeClassActive(colorEl);
+        colorEl[1].classList.add('active');
+    })
+    colorEl[2].addEventListener('click',()=>{
+        removeClassActive(colorEl);
+        colorEl[2].classList.add('active');
+    })
+    
+}
+
+function apllyFontColors(){
+    
+    let ifont=0, icolor=0;
+    let root= document.documentElement;
+
+    fontEL.forEach((font, i)=>{
+        if(font.classList.contains('active')){
+            ifont=i;
+            console.log(i);
+        }
+    })
+
+    colorEl.forEach((color, i)=>{
+        if(color.classList.contains('active')){
+            icolor=i;
+            console.log(i);
+        }
+    })
+
+   
+    switch (icolor) {
+        case 0:
+           root.style.setProperty('--current-color', '#70f3f8');
+            break;
+        case 1:
+            root.style.setProperty('--current-color', '#f87272');
+            break;
+        case 2:
+            root.style.setProperty('--current-color', '#d881f8');
+            
+            break;
+    
+        default:
+            root.style.setProperty('--current-color', '#70f3f8');
+            break;
+    }
+
+    switch (ifont) {
+        case 0:
+           root.style.setProperty('--current-font', "'Manrope', sans-serif");
+            break;
+        case 1:
+            root.style.setProperty('--current-font', "'IBM Plex Mono', monospace");
+            break;
+        case 2:
+            root.style.setProperty('--current-font', " 'Silkscreen', monospace");
+            
+            break;
+    
+        default:
+            root.style.setProperty('--current-font', "'Manrope', sans-serif");
+            break;
+    }
+
 
 }
 
@@ -179,11 +275,20 @@ function apllyModal(){
 
     timerEl.textContent = formateInTime(minutesTimer,secondsTimer);
     calculateProgressBar(minutesTimer);
+    apllyFontColors();
+
+
     reloadTimer();
     closeModal();
 }
 
+function changeColor(){
 
+}
+
+function changeFont(){
+
+}
 pomodoroBtn.addEventListener('click',pomodoro);
 shortBtn.addEventListener('click',short);
 longBtn.addEventListener('click',long);
@@ -192,8 +297,15 @@ closeBtn.addEventListener('click',closeModal);
 apllyBtn.addEventListener('click',apllyModal);
 //modal.addEventListener('click',closeModal);
 
+fontEL[0].addEventListener('click',()=>console.log('font1'));
+fontEL[1].addEventListener('click',()=>console.log('font2'));
+fontEL[2].addEventListener('click',()=>console.log('font2'));
 
+colorEl[0].addEventListener('click',()=>console.log('color1'));
+colorEl[1].addEventListener('click',()=>console.log('color2'));
+colorEl[2].addEventListener('click',()=>console.log('color3'));
 
+console.log(currentFont);
 clockEl.addEventListener('click',startTimer);
 
 
