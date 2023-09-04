@@ -30,12 +30,12 @@ body{
 }
 .container{
 
-    margin-top: 50px;
+    margin-top: 25px;
     display: flex;
     align-items: center;
     /*justify-content: center; */
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
     row-gap: 25px;
 
     
@@ -385,7 +385,7 @@ body{
     font-family: var(--current-font);
     height: 20px;
     margin: 0;
-    bottom: 80px;
+    bottom: 20px;
     display: flex;
     position: relative;
     color: var(--current-color);
