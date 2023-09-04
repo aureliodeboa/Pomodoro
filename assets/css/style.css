@@ -375,7 +375,7 @@ body{
     align-items: center;
     height: 40px;
     width: 100px;
-    background-color: #70f3f8;
+    background-color:var(--current-color);
     top: 35px;
   
   }
