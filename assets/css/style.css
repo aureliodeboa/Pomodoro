@@ -35,7 +35,7 @@ body{
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    row-gap: 30px;
+    row-gap: 25px;
 
     
 }
@@ -59,7 +59,7 @@ body{
     height: 50px;
     border-radius: 20px;
     background-color: var(--bar-color);
-
+    margin-bottom: 20px;
     color: var(--font-color);
     
    
@@ -80,7 +80,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 75%;
-    width: 80%;
+    width: 75%;
 
    
    
@@ -98,8 +98,8 @@ body{
     justify-content: center;
     align-items: center;
     background: conic-gradient(  var(--bg-color) 0.1deg, var(--current-color) 180deg);
-    height: 380px;
-    width: 380px;
+    height: 355px;
+    width: 355px;
     border-radius: 50%;
 }
 .progress-bar::before{
@@ -109,8 +109,8 @@ body{
     position: absolute;
     background-color: var(--bg-color);
     border-radius: 50%;
-    height: 400px;
-    width: 400px;
+    height: 380px;
+    width: 380px;
     z-index: -1;
     box-shadow:  0px 0 10px var(--font-color);
 
@@ -214,6 +214,7 @@ body{
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
     background-color: #fefefe;
     padding: 20px;
     border: 1px solid #888;
@@ -228,6 +229,7 @@ body{
 
   }
 .modal-title{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     text-transform: none;
@@ -280,11 +282,13 @@ body{
 
 
 .modal-font{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     border-bottom:var(--input-color) 1px solid;
+
 }
 .font-area{
     display: flex;
@@ -321,7 +325,7 @@ body{
     color: white;
 }
 
-.modal-font.color{
+.modal-font.colors{
     border-bottom:none;
 }
 
@@ -363,9 +367,8 @@ body{
   .button{
     font-family: var(--current-font);
     font-style: bolder;
-    position: absolute;
+    position: relative;
     cursor: pointer;
-    margin: 10px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -373,8 +376,40 @@ body{
     height: 40px;
     width: 100px;
     background-color: #70f3f8;
-    bottom: 19%;
+    top: 35px;
   
   }
 
-  
+  @media  (max-width: 500px){
+    
+    /*modal*/
+    
+    .modal-content{
+        width: 380px;
+        height: 310px;
+
+    }
+
+    .button
+    {   padding: 8px;
+        height: 20px;
+        font-size: 15px;
+        top: -6px;
+    }
+
+  /*clock and bar*/
+  .area-bar{
+    width: 380px;
+  }
+
+  .progress-bar{
+    width: 300px;
+    height: 300px;
+  }
+
+  .progress-bar::before{
+    width: 320px;
+    height: 320px;
+  }
+
+  }
