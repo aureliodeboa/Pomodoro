@@ -28,7 +28,7 @@ Você pode personalizar o temporizador clicando na engrenagem
 
 ## Acesso à Aplicação
 
-Você pode acessar a aplicação Pomodoro Customizável [aqui](https://silver-chebakia-3fd8cb.netlify.app/).
+Você pode acessar a aplicação Pomodoro  [aqui](https://silver-chebakia-3fd8cb.netlify.app/).
 
 ## Contribuição
 
