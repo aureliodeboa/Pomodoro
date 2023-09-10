@@ -385,7 +385,7 @@ body{
     font-family: var(--current-font);
     height: 20px;
     margin: 0;
-    bottom: 20px;
+    bottom: 0px;
     display: flex;
     position: relative;
     color: var(--current-color);

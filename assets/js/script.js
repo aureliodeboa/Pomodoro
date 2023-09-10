@@ -18,6 +18,7 @@ let colorEl = document.querySelectorAll('.color');
 let  tapSong= document.querySelector('#tap');
 let  barSong= document.querySelector('#barSong');
 let  finishSong= document.querySelector('#finish');
+
  //current color and current fonts
 let  currentFont = getComputedStyle(document.documentElement).getPropertyValue('--current-font'); 
 let  currentColor = getComputedStyle(document.documentElement).getPropertyValue('--current-color'); 
@@ -201,6 +202,7 @@ function long(){
 
 
 }
+
 function removeClassActive(el){
   
    for(let i=0;i<el.length;i++)
@@ -327,22 +329,23 @@ function reloadTimer()
 
 function apllyModal(){
 
-    timerEl.textContent = formateInTime(minutesTimer,secondsTimer);
-    calculateProgressBar(minutesTimer);
-    apllyFontColors();
+    if(shortTimeEl.getPropertyValue<0 || pomodoroTimeEl.value <0 || longTimeEl.value<0){
+        alert('digite um valor entre 0 e 60');
+    }
+    else{
+        timerEl.textContent = formateInTime(minutesTimer,secondsTimer);
+        calculateProgressBar(minutesTimer);
+        apllyFontColors();
+    
+    
+        reloadTimer();
+        closeModal();
+    }
 
-
-    reloadTimer();
-    closeModal();
+  
 }
 
-function changeColor(){
 
-}
-
-function changeFont(){
-
-}
 
 /* Buttons */
 pomodoroBtn.addEventListener('click',pomodoro);
